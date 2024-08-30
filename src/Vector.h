@@ -3,6 +3,7 @@
 #include <initializer_list>
 #include <stdexcept>
 #include <format>
+#include <cmath>
 template<typename T = double, size_t N = 2>
 class Vector
 {
@@ -207,4 +208,5 @@ std::ostream& operator<<(std::ostream& out, const Vector<T, N>& vec)
 		out << vec.at(i);
 	}
 	out << vec.at(N - 1) << ")";
+	return out;
 }

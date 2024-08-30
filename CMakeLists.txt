@@ -11,7 +11,6 @@ add_executable(Ball
     "src/Render.h"
     "src/Vector.h"
     "src/Ball.h"
-    "src/Type.h"
 )
 
 if(TARGET SDL2::SDL2main)
