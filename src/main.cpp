@@ -8,7 +8,6 @@
 #include "Core.h"
 
 #include <vector>
-#include <numbers>
 
 
 const int SCREEN_WIDTH = 400;
@@ -53,7 +52,7 @@ int main(int argc,char **argv)
 	int fpstick = SDL_GetTicks64();
 
 
-
+	srand(time(0));
 
 	std::vector<Ball> balls;
 	//balls.push_back(Ball(0.5, { 5,5.0000001 }, { 0,0 }, { 0,MGRAVITY }));
@@ -99,7 +98,7 @@ int main(int argc,char **argv)
 				SDL_GetMouseState(&tx, &ty);
 				double x = tx / PIXELS_PER_METER;
 				double y = ty / PIXELS_PER_METER;
-				balls.push_back(Ball(randint(60, 100) / (double)100, { x,y }, { 0,0 }, { 0,MGRAVITY }, randint(64, 255), randint(64, 255), randint(64, 255)));
+				balls.push_back(Ball(randint(60, 100) / (double)100, { x,y }, { randint(-5,5),randint(-8,-5) }, { 0,MGRAVITY }, randint(64, 255), randint(64, 255), randint(64, 255)));
 			}
 		}
 
@@ -110,6 +109,7 @@ int main(int argc,char **argv)
 
 
 		double time = (SDL_GetTicks64() - timetick) / double(1000);
+		// double time=0/double(1000);
 		timetick = SDL_GetTicks64();
 
 		for (Ball &ball : balls)
