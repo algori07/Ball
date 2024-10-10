@@ -10,11 +10,11 @@
 #include <vector>
 
 
-const int SCREEN_WIDTH = 400;
-const int SCREEN_HEIGHT = 400;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 
 const double MGRAVITY = 9.80665; // m/s
-const double PIXELS_PER_METER = 10; // pixel/m
+const double PIXELS_PER_METER = 4; // pixel/m
 
 const int MSCREEN_WIDTH = SCREEN_WIDTH / PIXELS_PER_METER;
 const int MSCREEN_HEIGHT = SCREEN_HEIGHT / PIXELS_PER_METER;
@@ -118,7 +118,7 @@ int main(int argc,char **argv)
 				if (ball.pos.at(0) - ball.radius < 0) ball.pos.at(0) = ball.radius;
 				if (ball.pos.at(1) - ball.radius < 0) ball.pos.at(1) = ball.radius;
 				if (ball.pos.at(0) + ball.radius > MSCREEN_WIDTH) ball.pos.at(0) = MSCREEN_WIDTH - ball.radius;
-				if (ball.pos.at(1) + ball.radius > MSCREEN_WIDTH) ball.pos.at(1) = MSCREEN_WIDTH - ball.radius;
+				if (ball.pos.at(1) + ball.radius > MSCREEN_HEIGHT) ball.pos.at(1) = MSCREEN_HEIGHT - ball.radius;
 			}
 			ALG_RenderDrawBall(renderer, ball);
 
@@ -167,7 +167,7 @@ int main(int argc,char **argv)
 				}
 				if (newpos.at(0) + ball.radius > MSCREEN_WIDTH)
 				{
-					std::pair<double, double> ans = findXInQuadraticEquation(ball.acc.at(0) / 2, ball.vel.at(0), ball.pos.at(0) - MSCREEN_HEIGHT + ball.radius);
+					std::pair<double, double> ans = findXInQuadraticEquation(ball.acc.at(0) / 2, ball.vel.at(0), ball.pos.at(0) - MSCREEN_WIDTH + ball.radius);
 					double time2 = ans.second;
 
 					// x = x0 + v0*t + 1/2*a*t^2
